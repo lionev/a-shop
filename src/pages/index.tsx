@@ -9,7 +9,7 @@ import camiseta3 from '../assets/camisetas/3.png'
 import 'keen-slider/keen-slider.min.css'
 
 
-export default function Home(props) {
+export default function Home() {
   
   const [sliderRef] = useKeenSlider({
     slides: {
@@ -20,7 +20,6 @@ export default function Home(props) {
 
   return (
    <HomeContainer ref={sliderRef} className="keen-slider">
-    <pre>{JSON.stringify(props.list)}</pre>
     <Product className="keen-slider__slide">
       <Image src={camiseta1} width={520} height={480} alt=""/>
 
@@ -57,12 +56,4 @@ export default function Home(props) {
     </Product>
    </HomeContainer>
   )
-}
-
-export const getServerSideProps = () => {
-  return {
-    props: {
-      list: [1,2,3]
-    }
-  }
 }
